@@ -1,0 +1,137 @@
+.TextAndButton {
+    position: relative;
+    width: 1344px;
+    height: 81px;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+}
+
+.TextAndButton div {
+    width: 427px;
+    height: 81px;
+    /* border: 1px solid red; */
+    margin-right: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.TextAndButton div span:nth-child(1) {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #575757;
+}
+
+.TextAndButton div span:nth-child(2) {
+    font-family: 'Nekst-Black';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 90%;
+    color: #575757;
+}
+
+button {
+    position: relative;
+    border: none;
+    width: 427px;
+    height: 68px;
+    border-radius: 34px;
+    background: #FF9514;
+    line-height: 68px;
+    align-items: center;
+    color: white;
+    font-family: 'Nekst-Black';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+button:hover {
+    background-color: black;
+}
+
+button:disabled {
+    background-color: rgba(255, 149, 20, 0.4);
+}
+
+button:active {
+    background-color: #575757;
+}
+
+@media (max-width: 1440px) {
+    .TextAndButton {
+        width: 928px;
+        height: 193px;
+        align-items: flex-start;
+    }
+    .TextAndButton div {
+        width: 448px;
+    }
+    .TextAndButton div:nth-child(2) {
+        margin-right: 0;
+    }
+    .TextAndButton div span:nth-child(2) {
+        color: #333333;
+    }
+    button {
+        bottom: 0;
+        position: absolute;
+        width: 345px;
+        height: 68px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .TextAndButton {
+        width: 696px;
+        height: 191px;
+    }
+    .TextAndButton div {
+        width: 332px;
+    }
+    .TextAndButton div:nth-child(2) {
+        margin-right: 0;
+    }
+    .TextAndButton div span:nth-child(2) {
+        color: #333333;
+    }
+}
+
+@media (max-width: 768px) {
+    .TextAndButton {
+        width: 280px;
+        height: 203px;
+        flex-direction: column;
+    }
+    .TextAndButton div {
+        width: 280px;
+        height: 41px;
+        margin-bottom: 29px;
+    }
+    .TextAndButton div:nth-child(2) {
+        margin-right: 0;
+    }
+    .TextAndButton div span:nth-child(1) {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 136%;
+    }
+    .TextAndButton div span:nth-child(2) {
+        font-weight: 900;
+        font-size: 22px;
+        line-height: 20px;
+    }
+    button {
+        font-weight: 900;
+        font-size: 22px;
+        width: 280px;
+        height: 60px;
+        border-radius: 30px;
+        line-height: 60px;
+    }
+}
