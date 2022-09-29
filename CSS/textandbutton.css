@@ -49,6 +49,7 @@
     font-style: normal;
     font-weight: 900;
     font-size: 30px;
+    margin: 0;
 }
 
 #button:hover {
@@ -69,6 +70,16 @@
 
 #button.disabled>span {
     display: none;
+}
+
+#button>span {
+    line-height: 68px;
+    align-items: center;
+    color: white;
+    font-family: 'Nekst-Black';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
 }
 
 @media (max-width: 1440px) {
@@ -135,11 +146,13 @@
         line-height: 20px;
     }
     #button {
-        font-weight: 900;
-        font-size: 22px;
         width: 280px;
         height: 60px;
         border-radius: 30px;
+    }
+    #button>span {
         line-height: 60px;
+        font-weight: 900;
+        font-size: 22px;
     }
 }
