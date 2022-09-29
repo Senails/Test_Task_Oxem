@@ -35,7 +35,7 @@
     color: #575757;
 }
 
-button {
+#button {
     position: relative;
     border: none;
     width: 427px;
@@ -51,23 +51,23 @@ button {
     font-size: 30px;
 }
 
-button:hover {
+#button:hover {
     background-color: black;
 }
 
-button:disabled {
+#button:disabled {
     background-color: rgba(255, 149, 20, 0.4);
 }
 
-button:active {
+#button:active {
     background-color: #575757;
 }
 
-button.disabled {
+#button.disabled {
     background: #FF9514;
 }
 
-button.disabled>span {
+#button.disabled>span {
     display: none;
 }
 
@@ -86,7 +86,7 @@ button.disabled>span {
     .TextAndButton div span:nth-child(2) {
         color: #333333;
     }
-    button {
+    #button {
         bottom: 0;
         position: absolute;
         width: 345px;
@@ -134,7 +134,7 @@ button.disabled>span {
         font-size: 22px;
         line-height: 20px;
     }
-    button {
+    #button {
         font-weight: 900;
         font-size: 22px;
         width: 280px;

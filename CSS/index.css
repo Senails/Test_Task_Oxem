@@ -6,12 +6,12 @@
 @import url("./loader.css");
 @font-face {
     font-family: 'Nekst-Black';
-    src: url('/assets/Nekst-Medium.ttf');
+    src: url('../assets/Nekst-Medium.ttf');
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('/assets/Gilroy-Regular.ttf');
+    src: url('../assets/Gilroy-Regular.ttf');
 }
 
 * {

@@ -319,9 +319,11 @@ function inputHandler3() {
 }
 
 async function sendRequest() {
+    form.formDisenable();
     let data = {
         price: form.price,
-        initial: form.price * (1 - form.vznos / 100),
+        initial: form.price * (form.vznos / 100),
+        initialpercent: form.vznos,
         months: form.len,
         allsum: form.allSum,
         monthsumm: form.monthSumm
@@ -329,14 +331,20 @@ async function sendRequest() {
 
     console.log(data)
 
-    let res = await fetch('https://eoj3r7f3r4ef6v4.m.pipedream.net', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json;'
-        },
-        body: JSON.stringify(data)
-    })
-    let data1 = await res.json()
-    console.log(data1)
+    try {
+        let res = await fetch('https://eoj3r7f3r4ef6v4.m.pipedream.net', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json;'
+            },
+            body: JSON.stringify(data)
+        })
+        let data1 = await res.json()
+        console.log(data1)
+    } catch (error) {
+        console.log(error)
+    }
+
+    form.formEnable();
 }
 ///

@@ -1,4 +1,4 @@
-button>.loader {
+#button>.loader {
     position: absolute;
     top: calc(50% - 10px);
     left: calc(50% - 10px);
@@ -15,7 +15,7 @@ button>.loader {
     display: none;
 }
 
-button.disabled>.loader {
+#button.disabled>.loader {
     display: block;
 }
 
