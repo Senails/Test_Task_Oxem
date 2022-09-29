@@ -63,6 +63,14 @@ button:active {
     background-color: #575757;
 }
 
+button.disabled {
+    background: #FF9514;
+}
+
+button.disabled>span {
+    display: none;
+}
+
 @media (max-width: 1440px) {
     .TextAndButton {
         width: 928px;

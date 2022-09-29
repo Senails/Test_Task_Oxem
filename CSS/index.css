@@ -3,6 +3,7 @@
 @import url("./inputs.css");
 @import url("./input.css");
 @import url("./polzunok.css");
+@import url("./loader.css");
 @font-face {
     font-family: 'Nekst-Black';
     src: url('/assets/Nekst-Medium.ttf');

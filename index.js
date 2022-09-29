@@ -18,6 +18,9 @@ let pols = document.querySelectorAll('div.polzunok')
 let nodes = [...inputs, ...pols];
 
 class Form {
+    allSum;
+    monthSumm;
+
     constructor(prise, vznos, len) {
         this.price = prise;
         this.vznos = vznos;
@@ -26,6 +29,9 @@ class Form {
         this.render = this.render.bind(this);
         this.formEnable();
         this.render();
+        window.addEventListener('resize', () => {
+            this.render();
+        })
     }
 
     setprice(value) {
@@ -87,6 +93,9 @@ class Form {
 
         monthprise.innerHTML = strMonth;
         allprise.innerHTML = strAll;
+
+        this.allSum = strAll;
+        this.monthSumm = strMonth;
     }
 
     formEnable() {
@@ -98,6 +107,7 @@ class Form {
         nodes.forEach((elem) => {
             elem.classList.remove('disabled');
         })
+        button.classList.remove('disabled');
 
         input1.addEventListener('change', inputHandler1);
         input2.addEventListener('change', inputHandler2);
@@ -112,10 +122,20 @@ class Form {
         nodes.forEach((elem) => {
             elem.classList.add('disabled');
         })
+        button.classList.add('disabled');
 
         input1.removeEventListener('change', inputHandler1);
         input2.removeEventListener('change', inputHandler2);
         input3.removeEventListener('change', inputHandler3);
+    }
+
+    sendToBack() {
+        // if (form.disable) {
+        //     form.formEnable();
+        // } else {
+        //     form.formDisenable();
+        // }
+
     }
 };
 let form = new Form(1000000, 10, 10);
@@ -131,16 +151,7 @@ polzunok2.addEventListener('touchstart', rangeTuchpad(60, 10, 2, 1));
 polzunok3.addEventListener('mousedown', rangeMouse(60, 1, 3, 1));
 polzunok3.addEventListener('touchstart', rangeTuchpad(60, 1, 3, 1));
 //button
-button.addEventListener('click', () => {
-    if (form.disable) {
-        form.formEnable();
-    } else {
-        form.formDisenable();
-    }
-})
-
-
-
+button.addEventListener('click', sendRequest);
 //utils
 function rangeMouse(max, min, idinput, ceil) {
 
@@ -305,5 +316,25 @@ function inputHandler3() {
     }
 
     form.setlen(res);
+}
+
+async function sendRequest() {
+    let data = {
+        price: this.price,
+        initial: this.initial,
+        months: this.len,
+        allsum: this.allSum,
+        monthsumm: this.monthSumm
+    }
+
+    let res = await fetch('https://eoj3r7f3r4ef6v4.m.pipedream.net', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json;'
+        },
+        body: JSON.stringify(data)
+    })
+    let data1 = await res.json()
+    console.log(data1)
 }
 ///

@@ -1,1 +1,29 @@
-.loader {}
+button>.loader {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    width: 22px;
+    height: 22px;
+    background-image: url('./../assets/loader.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation-name: anim;
+    animation-duration: 0.80s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: none;
+}
+
+button.disabled>.loader {
+    display: block;
+}
+
+@keyframes anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
