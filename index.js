@@ -320,12 +320,14 @@ function inputHandler3() {
 
 async function sendRequest() {
     let data = {
-        price: this.price,
-        initial: this.initial,
-        months: this.len,
-        allsum: this.allSum,
-        monthsumm: this.monthSumm
+        price: form.price,
+        initial: form.price * (1 - form.vznos / 100),
+        months: form.len,
+        allsum: form.allSum,
+        monthsumm: form.monthSumm
     }
+
+    console.log(data)
 
     let res = await fetch('https://eoj3r7f3r4ef6v4.m.pipedream.net', {
         method: 'post',
