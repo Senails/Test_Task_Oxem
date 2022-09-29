@@ -94,8 +94,8 @@ class Form {
         monthprise.innerHTML = strMonth;
         allprise.innerHTML = strAll;
 
-        this.allSum = strAll;
-        this.monthSumm = strMonth;
+        this.allSum = Math.ceil(this.vznos + monthpriseString * this.len);
+        this.monthSumm = Math.ceil(monthpriseString);
     }
 
     formEnable() {
@@ -127,15 +127,6 @@ class Form {
         input1.removeEventListener('change', inputHandler1);
         input2.removeEventListener('change', inputHandler2);
         input3.removeEventListener('change', inputHandler3);
-    }
-
-    sendToBack() {
-        // if (form.disable) {
-        //     form.formEnable();
-        // } else {
-        //     form.formDisenable();
-        // }
-
     }
 };
 let form = new Form(1000000, 10, 10);
@@ -328,23 +319,33 @@ async function sendRequest() {
         allsum: form.allSum,
         monthsumm: form.monthSumm
     }
-
-    console.log(data)
+    console.log(data);
+    console.log(JSON.stringify(data));
 
     try {
         let res = await fetch('https://eoj3r7f3r4ef6v4.m.pipedream.net', {
-            method: 'post',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json;'
             },
             body: JSON.stringify(data)
         })
-        let data1 = await res.json()
-        console.log(data1)
+        let data1 = await res.json();
+        console.log(data1);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 
-    form.formEnable();
+    //Задержки росто что бы можно было увидеть анимацию
+
+    setTimeout(() => {
+        button.classList.remove('disabled');
+        button.classList.add('opacity')
+
+        setTimeout(() => {
+            button.classList.remove('opacity')
+            form.formEnable();
+        }, 800)
+    }, 1000)
 }
 ///
